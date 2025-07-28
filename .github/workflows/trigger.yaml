@@ -3,4 +3,4 @@ jobs:
   call-deploy:
     uses: ./.github/workflows/called.yaml #actions/checkout@v4
     with:
-      environment: production
+      service: myapp

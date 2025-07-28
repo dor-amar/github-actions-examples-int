@@ -3,13 +3,15 @@ name: Deploy App
 on:
   workflow_call:
     inputs:
-      environment:
+      service:
         required: true
         type: string
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: deploy
-        run: echo "Deploying to PRODUCTION!"
+      - name: build
+        run: docker build -t ${{ github.event.inputs.service }} .
+      - name: push
+        run: docker push ${{ github.event.inputs.service }}
