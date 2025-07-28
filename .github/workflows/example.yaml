@@ -1,15 +1,10 @@
-name: Build and Push Docker Image
+name: Manual Workflow
 
 on:
-  push:
-    branches:
-      - main
-      - test
-      - staging
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  say_hello:
     runs-on: ubuntu-latest
     steps:
-      - name: deploy
-        run: echo "Deploying..."
+      - run: echo "Hello from a manually triggered workflow!"
