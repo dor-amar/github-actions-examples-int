@@ -1,0 +1,12 @@
+name: Push on File Changes
+
+on:
+  push:
+    paths:
+      - "src/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Triggered because a file in /src was changed"
