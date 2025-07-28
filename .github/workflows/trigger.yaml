@@ -2,11 +2,11 @@ name: Deploy App
 
 on:
   workflow_dispatch:
-  workflow_call:
     inputs:
       environment:
+        description: "Target environment"
         required: true
-        type: string
+        default: "staging"
 
 jobs:
   deploy:
