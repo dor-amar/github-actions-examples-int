@@ -1,0 +1,13 @@
+name: PR to Specific Branches
+
+on:
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  pr-check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "PR into main or staging"
