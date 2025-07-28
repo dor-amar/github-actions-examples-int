@@ -1,6 +1,6 @@
 on: workflow_dispatch
 jobs:
   call-deploy:
-    uses: ./.github/workflows/called.yaml #actions/checkout@v4
+    uses: ./.github/workflows/called.yaml #actions/checkout
     with:
-      service: myapp
+      environment: production
