@@ -27,13 +27,13 @@ jobs:
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
 
-      # - name: Build, Tag, and Push Image
-      #   env:
-      #     ECR_REGISTRY: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com
-      #   run: |
-      #     IMAGE_URI=$ECR_REGISTRY/$ECR_REPO:latest
+      - name: Build, Tag, and Push Image
+        env:
+          ECR_REGISTRY: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com
+        run: |
+          IMAGE_URI=$ECR_REGISTRY/$ECR_REPO:latest
 
-      #     docker build -t $IMAGE_URI .
-      #     docker push $IMAGE_URI
+          docker build -t $IMAGE_URI .
+          docker push $IMAGE_URI
 
-      #     echo "Image pushed to $IMAGE_URI"
+          echo "Image pushed to $IMAGE_URI"
