@@ -1,10 +1,19 @@
-name: Manual Workflow
+name: Deploy App
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target environment"
+        required: true
+        default: "staging"
+      version:
+        description: "Version tag to deploy"
+        required: false
 
 jobs:
-  say_hello:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello from a manually triggered workflow!"
+      - run: |
+          echo "Deploying version ${{ github.event.inputs.version || 'latest' }} to ${{ github.event.inputs.environment }}"
