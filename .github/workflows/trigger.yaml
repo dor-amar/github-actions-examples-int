@@ -1,3 +1,5 @@
+name: api
+
 on: workflow_dispatch
 jobs:
   call-deploy:
