@@ -1,8 +1,16 @@
-name: api
+name: Deploy App
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
 jobs:
-  call-deploy:
-    uses: ./.github/workflows/called.yaml #actions/checkout
-    with:
-      environment: production
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "Deploying to PRODUCTION!"
