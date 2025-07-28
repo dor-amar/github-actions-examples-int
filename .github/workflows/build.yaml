@@ -1,12 +1,13 @@
-name: Push on File Changes
+name: PR to Specific Branches
 
 on:
-  push:
-    paths:
-      - "src/**"
+  pull_request:
+    branches:
+      - main
+      - staging
 
 jobs:
-  build:
+  pr-check:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Triggered because a file in /src was changed"
+      - run: echo "PR into main or staging"
