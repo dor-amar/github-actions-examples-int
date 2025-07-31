@@ -1,0 +1,12 @@
+name: Run on Self-Hosted Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  selfhosted-job:
+    runs-on: [int]
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Running on my EC2 self-hosted runner"
+      - run: uname -a
